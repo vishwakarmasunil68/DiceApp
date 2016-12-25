@@ -1,0 +1,43 @@
+<!--
+
+   activity_dice_rolling.html
+
+   2015-12-30  File created by Kari Laitinen
+   2016-03-04  Last modification.
+
+   Notes:
+
+   It seems that you have to specify a zero layout_height when
+   you specify a layout_weight.
+   http://developer.android.com/guide/topics/ui/layout/linear.html
+
+   The LinearLayout is also given a background color here.
+
+-->
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="#439f09"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <com.emobi.diceapp.DiceRollingView
+        android:id="@+id/dice_rolling_view"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.9" />
+    
+    <Button
+        android:id="@+id/button_to_roll_dice"
+        android:onClick="button_to_roll_dice_was_pressed"
+        android:text="ROLL"
+        android:background="#e23a21"
+        android:textColor="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.1"/>
+
+</LinearLayout>
