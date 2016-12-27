@@ -2,13 +2,16 @@
 package com.emobi.diceapp.pack3;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 
 import com.emobi.diceapp.R;
+import com.emobi.diceapp.dicegame.EndingPhraseActivity;
 
 public class ResultImage extends Activity {
     int[] images_ids1={R.drawable.img1,R.drawable.img2,R.drawable.img3,R.drawable.img4,R.drawable.img5,R.drawable.img6};
@@ -20,7 +23,8 @@ public class ResultImage extends Activity {
     int[] images_ids7={R.drawable.img37,R.drawable.img38,R.drawable.img39,R.drawable.img40,R.drawable.img41,R.drawable.img42};
 
     ImageView iv_love1,iv_love2,iv_love3,iv_love4,iv_love5,iv_love6,iv_love7;
-
+    private static int SPLASH_TIME_OUT = 7000;
+    boolean isexit=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +50,41 @@ public class ResultImage extends Activity {
             ShowImageView(split,split.length);
 
         }
+
+//        new Handler().postDelayed(new Runnable() {
+//
+//            /*
+//             * Showing splash screen with a timer. This will be useful when you
+//             * want to show case your app logo / company
+//             */
+//
+//            @Override
+//            public void run() {
+//                // This method will be executed once the timer is over
+//                // Start your app main activity
+//                Intent i = new Intent(ResultImage.this, EndingPhraseActivity.class);
+//                startActivity(i);
+//                finishAffinity();
+//
+//            }
+//        }, SPLASH_TIME_OUT);
+        new CountDownTimer(7000,1000){
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                Log.d("sunil","isexit:-"+isexit);
+                if(!isexit) {
+                    Intent i = new Intent(ResultImage.this, EndingPhraseActivity.class);
+                    startActivity(i);
+                    finishAffinity();
+                }
+            }
+        }.start();
     }
     public void ShowImageView(String[] split,int size){
         switch (size){
@@ -206,5 +245,13 @@ public class ResultImage extends Activity {
                 break;
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        isexit=true;
+        startActivity(new Intent(this, EndingPhraseActivity.class));
+        finishAffinity();
+
     }
 }

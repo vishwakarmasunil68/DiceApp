@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".dicegame.DiceActivity"
+            android:name=".dicegame.SplashScreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".dicegame.DiceActivity"/>
         <!-- <activity android:name=".openglcode.OpenGLDemoActivity"></activity> -->
         <!-- <activity android:name=".pack1.RotationActivity"></activity> -->
         <!-- <activity android:name=".pack3.MyGLActivity"></activity> -->
@@ -32,7 +33,8 @@
             android:screenOrientation="portrait" />
         <!-- <activity android:name=".dicegame.DiceActivity"></activity> -->
         <!-- <activity android:name=".twodice.TwoDiceActivity"></activity> -->
-        <activity android:name=".PaypalIntegration"></activity>
+        <activity android:name=".PaypalIntegration" />
+        <activity android:name=".dicegame.EndingPhraseActivity"></activity>
     </application>
 
 </manifest>
